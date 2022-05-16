@@ -1,0 +1,31 @@
+.list-items {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    & .list-items__cards {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        border-radius: 5px;
+        overflow: scroll;
+        backdrop-filter: blur(1px);
+        background: #ffffff15;
+    }
+
+    & .list-items__squares{
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        border-radius: 5px;
+        overflow: scroll;
+        backdrop-filter: blur(1px);
+        background: #ffffff15;
+    }
+}

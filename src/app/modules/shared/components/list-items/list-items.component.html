@@ -1,0 +1,42 @@
+<div class="list-items">
+    <div class="list-items__cards" *ngIf="type === 'character'; else episode">
+        <app-item *ngFor="let item of items" 
+        [img]="item.image" 
+        [name]="item.name" 
+        [status]="item.status" 
+        [species]="item.species" 
+        [gender]="item.gender"
+        [id]="item.id"
+        [type]="type"
+        ></app-item>
+    </div>
+
+    <ng-template #episode>
+        <div class="list-items__squares" *ngIf="type === 'episode'; else location">
+            <app-item *ngFor="let item of items" 
+            [name]="item.name" 
+            [air_date]="item.air_date" 
+            [episode]="item.episode" 
+            [characters]="item.characters"
+            [created]="item.created.slice(0, 10)"
+            [id]="item.id"
+            [type]="type"
+            ></app-item>
+        </div>
+    </ng-template>
+
+    
+    <ng-template #location>
+        <div class="list-items__squares" >
+            <app-item *ngFor="let item of items" 
+            [name]="item.name" 
+            [typeLocation]="item.type" 
+            [dimension]="item.dimension" 
+            [characters]="item.residents"
+            [created]="item.created.slice(0, 10)"
+            [id]="item.id"
+            [type]="type"
+            ></app-item>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,40 @@
+.navigation {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #50ffaa;
+    box-shadow: 0 0 20px 5px #0002;
+    & .navigation__links {
+        display: flex;
+        justify-content: space-around;
+        width: 40%;
+
+        & .active {
+            font-weight: bold;
+        }
+    }
+
+    & .navigation__search {
+        width: 30%;
+        & input {
+            width: 90%;
+            border: 2px solid;
+            border-color: transparent transparent black transparent;
+            line-height: 2;
+            padding: 0 1ch 0 1ch;
+            border-top-left-radius: 1ch;
+            border-bottom-right-radius: 1ch;
+            outline: none;
+        }
+        .dialog {
+            display: block;
+            opacity: 0;
+            font-size: 10px;
+            transition: all .15s ease-in;
+        }
+        & input:focus + .dialog {
+            opacity: 1;
+        }
+    }
+}

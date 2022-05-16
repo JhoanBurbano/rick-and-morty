@@ -1,0 +1,81 @@
+
+<div class="character" (click)="getDetails(id)" *ngIf="type === 'character'; else episodes">
+    <div class="character__img">
+        <img [src]="img" alt="">
+    </div>
+    <div class="character__info">
+        <p class="name">
+            <strong>name</strong> <br/>
+            {{name | uppercase}}</p>
+        <p class="status">
+            <strong>status</strong> <br/>
+            {{status}}</p>
+        <p class="species">
+            <strong>species</strong> <br/>
+            {{species}}</p>
+        <p class="gender">
+            <strong>gender</strong> <br/>
+            {{gender}}</p>
+    </div>
+</div>
+<ng-template #episodes>
+    <div class="episodes" (click)="getDetails(id)" *ngIf="type === 'episode'; else locations">
+
+        <div class="episode__info">
+            <h3 class="name">
+                {{name | uppercase}}</h3>
+            <p class="air_date">
+                <strong>air date</strong> <br/>
+                {{air_date}}</p>
+            <p class="episode">
+                <strong>episode</strong> <br/>
+                {{episode}}</p>
+            <p class="created">
+                <strong>created</strong><br>
+                {{created}}
+            </p>
+            <button (click)="changeVisible()">characters</button>
+        </div>
+        <div class="episode__modal" *ngIf="isVisible">
+            <button (click)="changeVisible()">close</button>
+            <h3>Characters List</h3>
+            <div class="characters-list">
+                <div *ngFor="let item of listCaharacters" class="character__item">
+                    <img [src]="item.image" alt="item.name">
+                    <p>{{item.name}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #locations>
+    <div class="episodes" (click)="getDetails(id)">
+
+        <div class="episode__info">
+            <h3 class="name">
+                {{name | uppercase}}</h3>
+            <p class="typeLocation">
+                <strong>type</strong> <br/>
+                {{typeLocation}}</p>
+            <p class="dimension">
+                <strong>dimension</strong> <br/>
+                {{dimension}}</p>
+            <p class="created">
+                <strong>created</strong><br>
+                {{created}}
+            </p>
+            <button (click)="changeVisible()">characters</button>
+        </div>
+        <div class="episode__modal" *ngIf="isVisible">
+            <button (click)="changeVisible()">close</button>
+            <h3>Characters List</h3>
+            <div class="characters-list">
+                <div *ngFor="let item of listCaharacters" class="character__item">
+                    <img [src]="item.image" alt="item.name">
+                    <p>{{item.name}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

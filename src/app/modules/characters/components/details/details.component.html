@@ -1,0 +1,34 @@
+<div class="details-container">
+    <div class="details">
+        <div class="details__personal-info" *ngIf="character?.image">
+            <h3 class="title">INTERDIMENSIONAL IDENTIFICATION</h3>
+            <img [src]="character?.image" alt="">
+            <p class="name">
+                <strong>name</strong><br>
+                {{character.name}}</p>
+            <p class="gender">
+                <strong>gender</strong><br>
+                {{character.gender}}</p>
+            <p class="status">
+                <strong>status</strong><br>
+                {{character.status}}</p>
+            <a (click)="goLocation(character.origin.name)" class="origin">
+                <strong>origin</strong><br>
+                {{character.origin.name}}</a>
+            <p class="created">
+                <strong>creation</strong><br>
+                {{character.created.slice(0,10)}}</p>
+            <a (click)="goLocation(character.location.name)" class="location">
+                <strong>location</strong><br>
+                {{character.location.name}}
+            </a>
+        </div>
+        <div class="details__other-details">
+            <h3>Episodes List</h3>
+            <span *ngIf="episodes.length === 0">cargando...</span>
+            <div class="details__other-details__episodes-list" *ngFor="let episode of episodes">
+                {{episode.name}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<nav class="navigation">
+    <div class="navigation__links">
+        <a routerLink="/characters" routerLinkActive="active">Characters</a>
+        <a routerLink="/locations" routerLinkActive="active">Locations</a>
+        <a routerLink="/episodes" routerLinkActive="active">Episodes</a>
+    </div>
+    <!-- <img src="" alt="logo"> -->
+    <div class="navigation__search">
+        <input type="text" placeholder="search" (keydown.Enter)="filterArrays($event)">
+        <span class="dialog">press Enter to find</span>
+    </div>
+</nav>
