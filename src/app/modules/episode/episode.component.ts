@@ -12,13 +12,13 @@ import { loadEpisodes } from './store/episode.actions';
 export class EpisodeComponent implements OnInit {
   
   episodes: Array<episode> = [];
-  info: {} = {};
+  pagination: Array<{value:number, next: Array<any>}> = [];
 
   constructor(private store:Store) { }
 
   ngOnInit(): void {
-    this.store.dispatch(loadEpisodes())
-    this.store.pipe(select((state:any)=> state.episodes)).subscribe((epi)=>{this.episodes = epi.items, this.info = epi.info})
+    this.store.dispatch(loadEpisodes({ page: "?pages=1&name=" }))
+    this.store.pipe(select((state:any)=> state.episodes)).subscribe((epi)=>{this.episodes = epi.items, this.pagination =  Array(epi.info.pages).fill(0).map((x,i)=>({value: i+1, next: epi.info.next?((epi.info.next.split('?')[1]).split('&')).map((ele:string) => { let result = ele.split('=')[0]; if(ele.includes('name')){ result = ele};  return result}) : []}))})
   }
 
 }

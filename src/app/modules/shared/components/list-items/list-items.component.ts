@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { character } from 'src/app/modules/characters/interfaces/characters.interface';
+import { loadCharacters } from 'src/app/modules/characters/store/characters.actions';
 import { episode } from 'src/app/modules/episode/interfaces/episode.interface';
+import { loadEpisodes } from 'src/app/modules/episode/store/episode.actions';
 import { location } from 'src/app/modules/location/interfaces/location.interface';
+import { loadLocations } from 'src/app/modules/location/store/location.actions';
 
 @Component({
   selector: 'app-list-items',
@@ -12,20 +15,31 @@ import { location } from 'src/app/modules/location/interfaces/location.interface
 export class ListItemsComponent implements OnInit {
   @Input() items: Array<character | episode | location | any> = [];
   @Input() type: 'character' | 'episode' | 'location' | '' = ''
+  @Input() pagination: Array<{value: number, next: Array<any>}> = []
   filter:string | null= ""
 
   constructor(
-    private route: ActivatedRoute
+    private store: Store
   ) { }
 
   ngOnInit(): void {
-    this.filter = this.route.snapshot.queryParamMap.get('filter') ? this.route.snapshot.queryParamMap.get('filter') : ""
-    if(this.filter){
-            let find = this.filter;
-            this.items = this.items.filter((item:character | episode | location)=>{
-              return item.name.includes(find)? true : false;
-            })
-        }
+
+  }
+
+  dispatchPage(target: any, next:any[]){
+
+    let query = next.length ? (next.length > 1 ? (next[0] + '=' + target.value + '&' + next[1]) : (next[0] + '=' + target.value)) : 'page=' + target.value
+    console.log('next', query)
+    switch(location.pathname){
+      case '/characters':
+       return this.store.dispatch(loadCharacters({page: '?' + query}))
+      case '/locations':
+        return  this.store.dispatch(loadLocations({page: '?' + query}))
+      case '/episodes':
+        return this.store.dispatch(loadEpisodes({page: '?' + query}))
+      default:
+        return
+    }
   }
 
 }

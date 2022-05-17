@@ -15,7 +15,7 @@ export interface episodeState{
     info: {}
 }
 
-export interface response{
+export interface responseEpisodes{
     info:info,
     results: Array<episode>
 }

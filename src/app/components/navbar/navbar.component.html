@@ -6,7 +6,7 @@
     </div>
     <!-- <img src="" alt="logo"> -->
     <div class="navigation__search">
-        <input type="text" placeholder="search" (keydown.Enter)="filterArrays($event)">
-        <span class="dialog">press Enter to find</span>
+        <input type="text" placeholder="type here ..." #inputSearch>
+        <button (click)="filterArrays(inputSearch.value)">search</button>
     </div>
 </nav>

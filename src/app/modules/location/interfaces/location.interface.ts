@@ -15,7 +15,7 @@ export interface locationState{
     info: {}
 }
 
-export interface response{
+export interface responseLocations{
     info:info,
     results: Array<location>
 }

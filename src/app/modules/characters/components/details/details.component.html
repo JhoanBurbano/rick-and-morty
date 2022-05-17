@@ -25,7 +25,7 @@
         </div>
         <div class="details__other-details">
             <h3>Episodes List</h3>
-            <span *ngIf="episodes.length === 0">cargando...</span>
+            <span *ngIf="episodes.length === 0">loading...</span>
             <div class="details__other-details__episodes-list" *ngFor="let episode of episodes">
                 {{episode.name}}
             </div>

@@ -21,7 +21,7 @@ export interface characterState{
     info:{},
 }
 
-export interface response{
+export interface responseCharacters{
     info:info,
     results: Array<character>
 }

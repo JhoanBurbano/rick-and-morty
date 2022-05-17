@@ -11,6 +11,7 @@
         ></app-item>
     </div>
 
+    
     <ng-template #episode>
         <div class="list-items__squares" *ngIf="type === 'episode'; else location">
             <app-item *ngFor="let item of items" 
@@ -24,7 +25,7 @@
             ></app-item>
         </div>
     </ng-template>
-
+    
     
     <ng-template #location>
         <div class="list-items__squares" >
@@ -39,4 +40,7 @@
             ></app-item>
         </div>
     </ng-template>
+    <div class="list-items__pagination">
+        <button *ngFor="let page of pagination" [value]="page.value" (click)="dispatchPage($event.target, page.next)">{{page.value}}</button>
+    </div>
 </div>

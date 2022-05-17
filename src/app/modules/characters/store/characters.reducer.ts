@@ -6,7 +6,8 @@ export const initialState: characterState = {
     items: [],
     info: {},
 }
+
 export const characterReducer = createReducer(
     initialState,
-    on(getCharacters, (state, {items, info}) => ({...state, items: [...items], info}))
+    on(getCharacters, (state, {items, info}) => ({...state, items: [...items], info})),
   );

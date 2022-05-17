@@ -14,3 +14,8 @@ export interface info {
   next: string | null;
   prev: string | null;
 }
+
+export interface response {
+  info: info
+  results:any[]
+}

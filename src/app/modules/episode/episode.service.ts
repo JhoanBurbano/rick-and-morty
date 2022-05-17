@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { episode, response } from './interfaces/episode.interface';
+import { episode, responseEpisodes } from './interfaces/episode.interface';
 import { apiResources } from '../../api-resources';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs';
@@ -12,8 +12,8 @@ export class EpisodeService {
 
   constructor(private http: HttpClient) { }
 
-  getEpisodes(){
-    return this.http.get<response>(environment.BASE_URL + apiResources.getEpisodes)
+  getEpisodes(page: string){
+    return this.http.get<responseEpisodes>(environment.BASE_URL + apiResources.getEpisodes + page)
   }
 
   getMultiEpisodes(query: string){
