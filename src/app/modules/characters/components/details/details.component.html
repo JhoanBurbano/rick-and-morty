@@ -4,12 +4,11 @@
             <h3 class="title">INTERDIMENSIONAL IDENTIFICATION</h3>
             <img [src]="character?.image" alt="">
             <p class="name">
-                <strong>name</strong><br>
-                {{character.name}}</p>
+                <strong>{{character.name}}</strong></p>
             <p class="gender">
                 <strong>gender</strong><br>
                 {{character.gender}}</p>
-            <p class="status">
+            <p class="status" [ngClass]="{'alive': character.status === 'Alive', 'dead': character.status === 'Dead', 'unknown': character.status === 'unknown'}">
                 <strong>status</strong><br>
                 {{character.status}}</p>
             <a (click)="goLocation(character.origin.name)" class="origin">
@@ -26,9 +25,9 @@
         <div class="details__other-details">
             <h3>Episodes List</h3>
             <span *ngIf="episodes.length === 0">loading...</span>
-            <div class="details__other-details__episodes-list" *ngFor="let episode of episodes">
+            <p class="details__other-details__episodes-list" *ngFor="let episode of episodes">
                 {{episode.name}}
-            </div>
+            </p>
         </div>
     </div>
 </div>

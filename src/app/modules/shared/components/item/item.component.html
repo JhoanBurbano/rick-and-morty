@@ -1,11 +1,8 @@
 
 <div class="character" (click)="getDetails(id)" *ngIf="type === 'character'; else episodes">
-    <div class="character__img">
-        <img [src]="img" alt="">
-    </div>
+        <img class="character__img" [src]="img" alt="">
     <div class="character__info">
         <p class="name">
-            <strong>name</strong> <br/>
             {{name | uppercase}}</p>
         <p class="status">
             <strong>status</strong> <br/>

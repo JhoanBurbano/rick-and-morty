@@ -4,11 +4,12 @@
   padding: 0;
   box-sizing: border-box;
   letter-spacing: 0.15ch;
-  font-family: "Courier New", Courier, monospace;
+  font-family:"Arial" ,"Courier New", Courier, monospace;
 }
 
 body {
-    background: url('./assets/img/wallpaper-rick-and-morty.jpg');
+    background: url('https://burbanostudio-assets.s3.us-east-2.amazonaws.com/projects/rick_and_morty/rick_and_morty_wallpaper.jpeg');
+    background-size: cover;
     width: 100vw;
     height: 100vh;
     

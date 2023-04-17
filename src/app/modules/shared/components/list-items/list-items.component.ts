@@ -17,17 +17,20 @@ export class ListItemsComponent implements OnInit {
   @Input() type: 'character' | 'episode' | 'location' | '' = ''
   @Input() pagination: Array<{value: number, next: Array<any>}> = []
   filter:string | null= ""
+  buttonActive: number;
 
   constructor(
     private store: Store
-  ) { }
+  ) {
+    this.buttonActive = 1
+  }
 
   ngOnInit(): void {
 
   }
 
-  dispatchPage(target: any, next:any[]){
-
+  dispatchPage(target: any, next:any[], number: number){
+    this.buttonActive = number
     let query = next.length ? (next.length > 1 ? (next[0] + '=' + target.value + '&' + next[1]) : (next[0] + '=' + target.value)) : 'page=' + target.value
     console.log('next', query)
     switch(location.pathname){

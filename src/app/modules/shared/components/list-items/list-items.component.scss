@@ -6,42 +6,54 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    & .list-items__cards {
-        width: 90%;
+    &__cards {
+        width: max-content ;
         height: 90%;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: center;
         justify-content: space-around;
-        flex-wrap: wrap;
         border-radius: 5px;
         overflow: scroll;
         backdrop-filter: blur(1px);
-        background: #ffffff15;
     }
 
-    & .list-items__pagination {
+    &__pagination {
         margin: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
         & button {
             padding: 2px;
             border: none;
             border-radius: 2px;
-            background: #65ffaa;
+            background: #121212;
             margin: 0 2px;
             text-align: center;
             width: 25px;
             color: darkblue;
             cursor: pointer;
+            color: #50ffaa;
+            transition: all .1s linear;
+            &:hover {
+                background: #9fffd1;
+                color: black;
+            }
+            &.active{
+                background: #9fffd1;
+                color: black;
+            }
         }
     }
 
     & .list-items__squares{
-        width: 90%;
+        width: max-content;
         height: 90%;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         border-radius: 5px;
         overflow: scroll;
         backdrop-filter: blur(1px);
-        background: #ffffff15;
     }
 }

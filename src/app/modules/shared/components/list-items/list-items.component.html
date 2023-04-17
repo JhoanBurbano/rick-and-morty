@@ -41,6 +41,6 @@
         </div>
     </ng-template>
     <div class="list-items__pagination">
-        <button *ngFor="let page of pagination" [value]="page.value" (click)="dispatchPage($event.target, page.next)">{{page.value}}</button>
+        <button *ngFor="let page of pagination" [value]="page.value" [ngClass]="{'active': page.value === (buttonActive)}" (click)="dispatchPage($event.target, page.next, page.value)">{{page.value}}</button>
     </div>
 </div>
